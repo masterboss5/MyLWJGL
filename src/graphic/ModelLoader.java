@@ -21,7 +21,7 @@ public class ModelLoader {
         int vaoID = createVAO();
         bindIndicesBuffer(indices);
         storeDataInAttributeList(0, positions, 3);
-        storeDataInAttributeList(1, textureUV, 3);
+        storeDataInAttributeList(1, textureUV, 2);
         unbindVAO();
 
         return new RawModel(vaoID, positions.length);
