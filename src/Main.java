@@ -4,6 +4,7 @@ import graphic.RawModel;
 import graphic.TexturedModel;
 import io.InputHandler;
 import io.Window;
+import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL11;
 import render.RenderSystem;
@@ -25,10 +26,10 @@ public class Main implements Runnable {
     TexturedModel texturedModel;
 
     float[] vertices = {
-            -0.5f, 0.5f, 0f,//v0
-            -0.5f, -0.5f, 0f,//v1
-            0.5f, -0.5f, 0f,//v2
-            0.5f, 0.5f, 0f,//v3
+            -0.5f, 0.5f, 0f,
+            -0.5f, -0.5f, 0f,
+            0.5f, -0.5f, 0f,
+            0.5f, 0.5f, 0f,
     };
 
     int[] indices = {
@@ -42,6 +43,7 @@ public class Main implements Runnable {
             1, 1,
             1, 0
     };
+
 
     public static void main(String[] args) {
         INSTANCE = new Main();

@@ -1,11 +1,14 @@
 #version 400 core
 
-in vec2 passTextureUV;
+in vec3 color;
 
 out vec4 outputColor;
 
-uniform sampler2D texureSampler;
+uniform double red;
+uniform double green;
+uniform double blue;
 
-void main(void) {
-    outputColor = texture(texureSampler, passTextureUV);
+void main(void)
+{
+    outputColor = vec4(red, green, blue, 1.0);
 }

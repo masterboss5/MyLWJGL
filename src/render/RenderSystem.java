@@ -4,6 +4,10 @@ import graphic.RawModel;
 import graphic.TexturedModel;
 import org.lwjgl.opengl.*;
 
+import static org.lwjgl.opengl.GL11.*;
+
+//the glDrawElements function takes its indices from the EBO currently bound to the GL_ELEMENT_ARRAY_BUFFER target
+
 public class RenderSystem {
     public void renderModel(RawModel model) {
         GL30.glBindVertexArray(model.getVaoID());
@@ -14,6 +18,7 @@ public class RenderSystem {
     }
 
     public void renderModel(TexturedModel texturedModel) {
+//        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         RawModel model = texturedModel.getRawModel();
         GL30.glBindVertexArray(model.getVaoID());
         GL20.glEnableVertexAttribArray(0);

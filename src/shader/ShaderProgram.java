@@ -1,16 +1,28 @@
 package shader;
 
+import org.joml.Matrix4f;
+import org.joml.Matrix4fStack;
+import org.joml.Vector3f;
+import org.lwjgl.BufferUtils;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
+import org.lwjgl.opengl.GL40;
+import org.lwjgl.opengl.GL44;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.FloatBuffer;
+
+import static java.lang.Math.sin;
 
 public abstract class ShaderProgram {
-    private int programID;
+    protected int programID;
     private int vertexShaderID;
     private int fragmentShaderID;
+
+    private static FloatBuffer matrixBuffer = BufferUtils.createFloatBuffer(16);
 
     public ShaderProgram(String vertexFilePath, String fragmentFilePath) {
         this.vertexShaderID = this.loadShader(vertexFilePath, GL20.GL_VERTEX_SHADER);
